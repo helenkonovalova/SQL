@@ -1,0 +1,119 @@
+--Выборки
+/* SELECT поле1, поле2,...
+FROM имя_таблицы;
+
+select поле1, поле2,...
+from имя_таблицы; 
+
+select * (все поля)
+from имя_таблицы*/
+
+--Вывести таблицу Customers
+/*select *
+from Customers;*/
+
+--Вывести имена и фамилии из таблицы Customers (поля first_name, last_name)
+/*select first_name, last_name
+from customers;*/
+
+--Вывести имена, возраст и страны из таблицы Customers
+/*select first_name, age, country
+from Customers;*/
+
+--Вывести имена, фамилии и возраст покупателей, которым больше 25.
+/*select first_name, last_name, age
+from Customers
+where age > 25;*/
+
+--Вывести пользователей из USA
+/*select *
+from Customers
+where country = 'USA';*/
+
+--Вывести пользователей с фамилией Doe
+/*select *
+from Customers
+where last_name = 'Doe';*/
+
+--Вывести пользователей которым больше 18 и живут в USA
+/*select *
+from Customers
+where age > 18 and country = 'USA';*/
+
+--Вывести пользователей из USA или UK
+/*select *
+from Customers
+where country = 'USA' or country = 'UK';*/
+
+--Вывести покупателей, которым больше 30 и меньше 25
+/*select *
+from Customers
+where age > 30 or age < 25;*/
+
+--Вывести покупателей в возрасте от 20 до 30 вкл концы
+/*select *
+from Customers
+where age >= 20 and age <= 30;*/
+
+-- Синтаксис between min and max (включая min, max)
+/*select *
+from Customers
+where age between 20 and 30;*/
+
+--Вывести покупателей, которым больше 30 или меньше 25
+--not between [25:30] - не включает концы
+/*select *
+from Customers
+where age not between 25 and 30;*/
+
+--Синтаксис IN (value1, value2, value3,....)
+--Вывести пользователей которые из USA или из UK
+/*select *
+from Customers
+where country in ('USA', 'UK');*/
+
+--Вывести всех покупателей, кроме John, David, Alex
+/*select *
+from Customers
+where first_name != 'John' and first_name != 'David' and first_name != 'Alex';*/
+
+/*select *
+from Customers
+where first_name not in ('John', 'David', 'Alex');*/
+
+/*like % _
+% любое количество любых символов
+_ один из симолов(любой)
+
+имя начинается на букву 'B' - first_name like 'b%' т.е после симола В может быть любое количество симолов
+мейл заканчивается на '.com' - mail like '%.com' т.е перед .com может быть лбое количество символов
+описание товара содержит подстроку 'book' - description like '%book%' например 'notebook'
+описание товара содержит слово 'book' (не может быть notebook, а только '....book....') - description like '% book %' (пробелы!)
+страна 'USA'(равенство) - country like 'usa' можно написать равенство без проверки регистра
+имя, где вторая буква 'O' - first_name like '_O%'
+имя,где предпоследняя буква 't' - first_name like '%t_'
+третий символ 'd' - like '__d%'
+*/
+
+--Вывести пользователей, у которых имя начинается на 'b'
+/*select *
+from customers
+where first_name like 'b%';*/
+
+--Вывести пользователей, у которых имя начинается на 'r' и заканчивается на 't'
+/*select *
+from customers
+where first_name like 'r%t';*/
+
+--Вывести покупателей,где вторая буква имени 'o'
+/*select *
+from customers
+where first_name like '_o%';*/
+
+--Вывести покупателей, где в середине имени встречается буква 'b'
+/*select *
+from customers
+where first_name like '_%b%_';*/
+
+--Вывести link, '[любые символы]www.[любые символы]sql[любые символы].com'
+--link like '%www.&sql%.com'
