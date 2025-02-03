@@ -1,4 +1,3 @@
-use gt081024;
 create database company_db;
 use company_db;
 create table employees(
